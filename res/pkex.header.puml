@@ -1,0 +1,18 @@
+@startpacketdiag
+title "pkeX header"
+
+scale_interval = 8;
+
+0-31: Magic
+32-39: Version Major
+40-47: Version Minor
+48-55: Type
+56-63: Name
+64-71: Module Major
+72-79: Module Minor
+80-95: String Table Offset
+96-111: Features Table Offset
+112-127: Dependencies Table Offset
+128-159: ELF Offset
+
+@endpacketdiag
