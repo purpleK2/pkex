@@ -22,6 +22,16 @@ Additional module manager behaviour is specified later on.
 A pkeX file, excluding the ELF data, is composed of a fixed-size header and at least two tables of variable length.
 
 ## pkeX header
-The header contains the basic information about the module needed by the manager.
+The header contains the basic information about the module needed by the manager. It is found at the start of the file.
 
-![pkeX header map](res/pkex.header.png)
+- **Magic**: a signature for the module format. This MUST be equal to the string `PEXT`. If not, this is an invalid file.
+- **Version**: Identifies the pkeX specification revision. Higher 8 bits identify the major version, lower 8 for the minor.
+- **Type**: Identifies the module type. Currently supported types are: `PKEX_MOD` (0, offers a software extension), `PKEX_DRV` (1, offers a device driver).
+- **Name**: This is an offset into the String table (see [String Table](#)) that tells the name of this driver.
+- **Module Major & Minor**: Identifies the version of this module, useful for modules that rely on others. Higher 8 bits for major, lower 8 for minor.
+- **String Table Offset**: Offset into the file for the String table (see [String Table](#) below). Not to be confused with ELF's string table.
+- **Features Table Offset**: Offset into the file for the Features table (see [Features Table](#) below).
+- **Dependencies Table Offset**: Offset into the file for the Dependencies table (see [Dependencies Table](#) below).
+- **ELF Offset**: Offset into the file for the start of the ELF file to be executed.
+
+![pkeX header fields](res/pkex.header.png)
