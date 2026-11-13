@@ -1,0 +1,13 @@
+@startpacketdiag
+title "Features table"
+
+scale_interval = 8;
+
+0-7: offset 1
+8-15: offset 2
+16-23: offset 3
+24-31: ...
+32-39: ...
+40-47: 0
+
+@endpacketdiag

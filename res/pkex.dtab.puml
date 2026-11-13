@@ -1,0 +1,11 @@
+@startpacketdiag
+title "Dependency table"
+
+scale_interval = 8;
+
+0-7: Offset 0
+8-15: Offset 1
+16-23: ...
+24-31: 0
+
+@endpacketdiag
